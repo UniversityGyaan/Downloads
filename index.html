@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Gyaan | PDF Download</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#eef3f8,#f9fafc);
+  color:#142b48;
+}
+.card{
+  width:100%;
+  max-width:540px;
+  background:#fff;
+  border-radius:18px;
+  padding:30px 25px 24px;
+  text-align:center;
+  box-shadow:0 12px 40px rgba(20,43,72,.13);
+  border:1px solid #e4e9ef;
+}
+.logo{
+  width:92px;
+  height:92px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto 16px;
+}
+h1{
+  margin:0;
+  font-size:28px;
+  font-weight:800;
+  color:#102d50;
+}
+.subtitle{
+  margin:7px 0 24px;
+  color:#68778a;
+  font-size:15px;
+}
+.instruction{
+  text-align:left;
+  background:#f7f3e8;
+  border-left:5px solid #d4a83e;
+  padding:16px;
+  border-radius:9px;
+  font-size:15px;
+  line-height:1.55;
+  color:#29394e;
+}
+.instruction b{color:#102d50}
+.warning{
+  margin:17px 0 12px;
+  padding:13px 14px;
+  background:#fff5e8;
+  border:1px solid #f0d5a6;
+  border-radius:9px;
+  color:#9a6410;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.45;
+}
+.btn{
+  width:100%;
+  display:block;
+  border:0;
+  border-radius:10px;
+  padding:15px 18px;
+  margin-top:13px;
+  font-size:16px;
+  font-weight:800;
+  text-decoration:none;
+  cursor:pointer;
+  transition:.2s;
+}
+.subscribe{
+  background:#d90000;
+  color:#fff;
+}
+.subscribe:hover{background:#b90000}
+.download{
+  background:#16834a;
+  color:#fff;
+}
+.download.disabled{
+  background:#b9c2cc;
+  color:#fff;
+  cursor:not-allowed;
+  pointer-events:none;
+}
+.status{
+  margin-top:13px;
+  min-height:20px;
+  font-size:13px;
+  color:#667589;
+}
+.footer{
+  margin-top:20px;
+  font-size:11px;
+  color:#8995a4;
+  line-height:1.45;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- Put logo.jpg in the same folder as this index.html -->
+  <img src="logo.jpg" alt="University Gyaan Logo" class="logo"
+       onerror="this.style.display='none'">
+
+  <h1>University Gyaan</h1>
+  <div class="subtitle">PDF Download</div>
+
+  <div class="instruction">
+    <b>Important Instruction</b><br><br>
+    PDF Download करने के लिए पहले हमारे YouTube Channel को
+    <b>Subscribe</b> करें और किसी भी एक Video को <b>Like</b> करें।
+    <br><br>
+    इसके बाद इस Page पर वापस आएं।
+    <br><br>
+    <b>Minimum 10 Seconds Video Watch करना आवश्यक है।</b>
+  </div>
+
+  <div class="warning">
+    ⚠️ YouTube Subscribe करें और किसी एक Video को Like करें।
+    Minimum 15 Seconds Video Watch करें।
+  </div>
+
+  <a id="subscribeBtn"
+     class="btn subscribe"
+     href="https://www.youtube.com/@UniversityGyaan"
+     target="_blank"
+     rel="noopener noreferrer">
+     ▶ SUBSCRIBE ON YOUTUBE
+  </a>
+
+  <a id="downloadBtn"
+     class="btn download disabled"
+     href="https://drive.google.com/"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-disabled="true">
+     📥 DOWNLOAD PDF
+  </a>
+
+  <div id="status" class="status">
+    Download button will be enabled after the required waiting period.
+  </div>
+
+  <div class="footer">
+    University Gyaan • Educational Updates & Study Material
+  </div>
+
+</div>
+
+<script>
+/* =====================================================
+   SETTINGS — ONLY CHANGE THESE TWO LINKS
+   ===================================================== */
+const YOUTUBE_CHANNEL = "https://www.youtube.com/@university_gyaan?sub_confirmation=1";
+const PDF_LINK = "https://drive.google.com/file/d/1THMr9GIiBrYSqzWBral-Aqy094k5JQ0z/view?usp=drive_link";
+
+/* =====================================================
+   DO NOT CHANGE BELOW
+   ===================================================== */
+
+document.getElementById("subscribeBtn").href = YOUTUBE_CHANNEL;
+document.getElementById("downloadBtn").href = PDF_LINK;
+
+const downloadBtn = document.getElementById("downloadBtn");
+const status = document.getElementById("status");
+
+/*
+  15 seconds wait.
+  No countdown is displayed.
+*/
+setTimeout(function () {
+  downloadBtn.classList.remove("disabled");
+  downloadBtn.setAttribute("aria-disabled", "false");
+  status.textContent = "✓ Download is now available.";
+}, 30000);
+</script>
+
+</body>
+</html>
